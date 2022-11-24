@@ -12,7 +12,7 @@
     <artifactId>spring-boot-jpa-h2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-jpa-h2</name>
-    <description>Spring Boot JPA + H2 database example - CRUD Rest Apis</description>
+    <description>Spring Boot JPA + H2 database example - CRUD Rest Apis-GUi</description>
 
     <properties>
         <java.version>1.8</java.version>
