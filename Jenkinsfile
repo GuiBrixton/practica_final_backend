@@ -8,7 +8,7 @@ buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
 
 }
 stages {
-stage('Hello Backend praticas git') {
+stage('Hello Backend praticas') {
 steps {
 sh '''
 java -version
