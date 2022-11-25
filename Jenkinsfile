@@ -51,19 +51,6 @@ spec:
             dockerImage.push()
           }
         }
-      }
-    }
-
-    stage('Push Image latest to Docker Hub') {
-      steps {
-        script {
-          dockerImage = docker.build registryFrontend + ":latest"
-          docker.withRegistry( '', registryCredential) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
 
   }
   post {
