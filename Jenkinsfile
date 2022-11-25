@@ -92,8 +92,8 @@ stage("Builds"){
   stage("Nexus"){
    echo'Guardar el artefacto al repositorio de Nexus'
   }
-   stage("Nexus"){
-   echo'Guardar el artefacto al repositorio de Nexus'
+   stage("Deploy"){
+   echo''
   }
     }
   post {
