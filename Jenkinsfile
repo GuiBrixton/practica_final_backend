@@ -126,17 +126,17 @@ spec:
         }
     }
 
-    stage("H - kanico Build & Push"){
-        steps{
-            script {
-              dockerImage = docker.build registryBacktend + ":$BUILD_NUMBER"
-              docker.withRegistry( '', registryCredential) {
-                dockerImage.push()
-              }
-            }
-        }
-    }
-
+ //   stage("H - kanico Build & Push"){
+ //       steps{
+ //           script {
+ //             dockerImage = docker.build registryBacktend + ":$BUILD_NUMBER"
+ //             docker.withRegistry( '', registryCredential) {
+ //               dockerImage.push()
+ //             }
+ //           }
+ //       }
+ //   }
+//
  //   stage(" I-  Run test environment"){
  //       steps{
  //           sh " Iniciar un pod o contenedor con la imagen que acabamos de generar."
@@ -269,10 +269,10 @@ spec:
 
   }
 
-  post {
-    always {
-      cleanWs()
-      sh 'docker logout'
-    }
-  }
+  //post {
+   // always {
+   //   cleanWs()
+   //   sh 'docker logout'
+   // }
+  //}
 }
