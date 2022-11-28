@@ -152,7 +152,7 @@ spec:
 //*************************************************JMETER************************************************************
  //   stage("J - API Test o Performance Test"){
  //       steps{
- //           sh "Lanzar los test de JMeter o las pruebas de API con Newman."
+ //           sh "Lanzar los test de JMeter o las pruebas de API con Newma"
  //       }
  //   }
 //
