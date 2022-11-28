@@ -29,7 +29,7 @@ spec:
     }
 
   environment {
-    //registryCredential='dockerhub'
+    registryCredential='dockerhub'
     //registryFrontend = 'acavaleiro/spring-boot-app'
    
     //**********************************************************************************
