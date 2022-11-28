@@ -30,7 +30,7 @@ spec:
 
   environment {
     registryCredential='dockerhub'
-    //registryFrontend = 'acavaleiro/spring-boot-app'
+    registryFrontend = 'acavaleiro/spring-boot-app'
    
     //**********************************************************************************
      //NEXUS_VERSION = "nexus3"
@@ -52,27 +52,27 @@ spec:
         }
     }
  //**************************************************POM-GIT************************************************************
-//    stage('A - Code Promotion') {
-//
-//        when {
-//            branch 'main'
-//        }
-//        steps {
-//            script {
-//                // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
-//               pom = readMavenPom file: "pom.xml"
-//                 POM_VERSION = ''
-//                 version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
-//                echo "${version}"
-//                sh "mvn versions:set -DremoveSnapshot=true"
-//                // def versionsinsnapshot = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
-//                // echo "${versionsinsnapshot}"
-//                // sh "git add pom.xml"
-//                // sh "git commit -m \"pom.xml update \""
-//                // sh "git push mi repositorrio "
-//   //         }
-//   //     }
-// //   }
+     stage('A - Code Promotion') {
+ 
+        when {
+          branch 'main'
+       }
+        steps {
+          script {
+               // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
+              pom = readMavenPom file: "pom.xml"
+              POM_VERSION = ''
+              version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+               echo "${version}"
+                h "mvn versions:set -DremoveSnapshot=true"
+               def versionsinsnapshot = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+              echo "${versionsinsnapshot}"
+              sh "git add pom.xml"
+              sh "git commit -m \"pom.xml update \""
+              sh "git push https://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@github.com/GuiBrixton/practica_final_backend.git"
+           }
+         }
+     }
  //**************************************************POM-GIT************************************************************
     stage("B - Compile"){
         steps{
@@ -202,7 +202,7 @@ spec:
  //                   }      
  //              }
  //          }
- //       }https://kubernetes.io/search/?q=networks
+ //       }
  //       stage ("Generate Taurus Report") {
  //           steps{
  //               script {
