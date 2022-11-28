@@ -29,8 +29,8 @@ spec:
     }
 
   environment {
-    registryCredential='dockerhub'
-    registryFrontend = 'acavaleiro/spring-boot-app'
+    //registryCredential='dockerhub'
+    //registryFrontend = 'acavaleiro/spring-boot-app'
    
     //**********************************************************************************
      //NEXUS_VERSION = "nexus3"
@@ -127,16 +127,16 @@ spec:
         }
     }
 
-   stage("H - kanico Build & Push"){
-       steps{
-           script {
-             dockerImage = docker.build registryBackend + ":latest"
-             docker.withRegistry( '', registryCredential) {
-               dockerImage.push()
-             }
-           }
-       }
-   }
+  // stage("H - kanico Build & Push"){
+   //    steps{
+   //        script {
+   //          dockerImage = docker.build registryBackend + ":latest"
+   //          docker.withRegistry( '', registryCredential) {
+   //            dockerImage.push()
+   //          }
+   //        }
+   //    }
+  // }
    stage(" I-  Run test environment"){
        steps{
            sh " Iniciar un pod o contenedor con la imagen que acabamos de generar."
@@ -202,7 +202,7 @@ spec:
  //                   }      
  //              }
  //          }
- //       }
+ //       }https://kubernetes.io/search/?q=networks
  //       stage ("Generate Taurus Report") {
  //           steps{
  //               script {
