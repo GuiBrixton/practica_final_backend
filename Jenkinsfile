@@ -269,10 +269,10 @@ spec:
 
   }
 
-  post {
-    always {
-      cleanWs()
-      sh 'docker logout'
-    }
-  }
+  //post {
+   // always {
+   //   cleanWs()
+   //   sh 'docker logout'
+   // }
+  //}
 }
