@@ -130,7 +130,7 @@ spec:
    stage("H - kanico Build & Push"){
        steps{
            script {
-             dockerImage = docker.build registryBacktend + ":$BUILD_NUMBER"
+             dockerImage = docker.build registryBackend + ":latest"
              docker.withRegistry( '', registryCredential) {
                dockerImage.push()
              }
