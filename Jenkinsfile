@@ -90,7 +90,7 @@ spec:
     stage("D - JaCoCo Tests") {
         steps {
             jacoco()
-            junit "target/surefire-reports/*.xml"
+          
         }
     }
     //**************************************************SONARQ************************************************************
@@ -140,13 +140,13 @@ spec:
    stage(" I-  Run test environment"){
        steps{
            sh " Iniciar un pod o contenedor con la imagen que acabamos de generar."
-           script {
-            if(fileExists("launcher")){
-               sh 'rm -r launcher'
-             }
-           }
-           sh ""
-           sh ""
+          // script {
+           // if(fileExists("launcher")){
+            //   sh 'rm -r launcher'
+            // }
+          // }
+          // sh ""
+          // sh ""
        }
    }
 //*************************************************JMETER************************************************************
