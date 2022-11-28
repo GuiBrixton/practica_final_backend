@@ -121,34 +121,34 @@ spec:
     // }
     //**************************************************************************************************************
     stage("G - Package"){
+     
         steps{
             sh "mvn clean package -DskipTests"
         }
     }
 
- //   stage("H - kanico Build & Push"){
- //       steps{
- //           script {
- //             dockerImage = docker.build registryBacktend + ":$BUILD_NUMBER"
- //             docker.withRegistry( '', registryCredential) {
- //               dockerImage.push()
- //             }
- //           }
- //       }
- //   }
-//
- //   stage(" I-  Run test environment"){
- //       steps{
- //           sh " Iniciar un pod o contenedor con la imagen que acabamos de generar."
- //           script {
- //             if(fileExists("launcher")){
- //               sh 'rm -r launcher'
- //             }
- //           }
- //           sh ""
- //           sh ""
- //       }
- //   }
+   stage("H - kanico Build & Push"){
+       steps{
+           script {
+             dockerImage = docker.build registryBacktend + ":$BUILD_NUMBER"
+             docker.withRegistry( '', registryCredential) {
+               dockerImage.push()
+             }
+           }
+       }
+   }
+   stage(" I-  Run test environment"){
+       steps{
+           sh " Iniciar un pod o contenedor con la imagen que acabamos de generar."
+           script {
+            if(fileExists("launcher")){
+               sh 'rm -r launcher'
+             }
+           }
+           sh ""
+           sh ""
+       }
+   }
 //*************************************************JMETER************************************************************
  //   stage("J - API Test o Performance Test"){
  //       steps{
@@ -269,10 +269,10 @@ spec:
 
   }
 
-  //post {
-   // always {
-   //   cleanWs()
-   //   sh 'docker logout'
-   // }
-  //}
+  post {
+   always {
+      cleanWs()
+     sh 'docker logout'
+   }
+  }
 }
