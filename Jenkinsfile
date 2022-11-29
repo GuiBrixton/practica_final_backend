@@ -137,12 +137,12 @@ spec:
             }
          }
     }
-   stage(" I-  Run test environment"){
+       stage(" I-  Run test environment"){
        steps{
            script {
           dockerImage = docker.build registryFrontend + ":latest"
           docker.withRegistry( '', registryCredential) {
-            dockerImage.push()
+          dockerImage.push()
           }
       }
   }
