@@ -213,7 +213,7 @@ spec:
            }
        }
           stage("K - Nexus"){
-       steps {admin
+       steps {
                script {
                   // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                   pom = readMavenPom file: "pom.xml"
@@ -235,13 +235,13 @@ spec:
                          groupId: pom.groupId,
                          version: pom.version,
                          repository: NEXUS_REPOSITORY,
-                           credentialsId: NEXUS_CREDENTIAL_ID,
-                           artifacts: [
-                               // Artifact generated such as .jar, .ear and .war files.
-                               [artifactId: pom.artifactId,
-                               classifier: "",
-                               file: artifactPath,
-                               type: pom.packaging], // Lets upload the pom.xml file for additional information for Transitive dependencies
+                         credentialsId: NEXUS_CREDENTIAL_ID,
+                         artifacts: [
+                         // Artifact generated such as .jar, .ear and .war files.
+                         [artifactId: pom.artifactId,
+                         classifier: "",
+                              file: artifactPath,
+                              type: pom.packaging], // Lets upload the pom.xml file for additional information for Transitive dependencies
                              [artifactId: pom.artifactId,
                              classifier: "",
                                file: "pom.xml",
