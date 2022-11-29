@@ -51,7 +51,7 @@ spec:
             sh "java --version"
         }
     }
- //**************************************************POM-GIT************************************************************
+ 
      stage('A - Code Promotion') {
  
         when {
@@ -73,7 +73,7 @@ spec:
            }
          }
      }
- //**************************************************POM-GIT************************************************************
+ 
     stage("B - Compile"){
         steps{
             sh "mvn clean compile -DskipTests"
@@ -147,12 +147,7 @@ spec:
       }
            }
   }
-//*************************************************JMETER************************************************************
-   stage("J - API Test o Performance Test"){
-       steps{
-           sh "Lanzar los test de JMeter o las pruebas de API con Newma"
-       }
-   }
+
    stage ("Setup Jmeter") {
           steps{
               script {
