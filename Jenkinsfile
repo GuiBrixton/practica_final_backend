@@ -278,4 +278,4 @@ spec:
      sh 'docker logout'
    }
   }
-}
+
